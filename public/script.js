@@ -23,7 +23,7 @@ let maxDownloadsEnabled = false;
 
 // Фоновая музыка
 const bgMusic = document.getElementById('bgMusic');
-bgMusic.volume = 0.3;
+bgMusic.volume = 0.1;
 
 // Автозапуск при первом клике
 document.addEventListener('click', () => {
