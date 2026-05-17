@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать файл</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .view-box {
+            background: #151515;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .file-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+
+        .file-info {
+            margin-bottom: 24px;
+        }
+
+        .file-info h2 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 8px;
+            word-break: break-all;
+        }
+
+        .file-info p {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .password-form {
+            margin-bottom: 24px;
+        }
+
+        .password-form input {
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 12px;
+            color: #e0e0e0;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .password-form input:focus {
+            outline: none;
+            border-color: #555;
+        }
+
+        .password-form button {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 12px;
+            color: #e0e0e0;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .password-form button:hover {
+            background: #222;
+            border-color: #555;
+        }
+
+        .preview-container {
+            margin-bottom: 24px;
+            background: #0a0a0a;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .preview-container video,
+        .preview-container audio {
+            width: 100%;
+            outline: none;
+        }
+
+        .download-btn {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 12px;
+            color: #e0e0e0;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .download-btn:hover {
+            background: #222;
+            border-color: #555;
+        }
+
+        .error-msg {
+            color: #f44336;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .stats {
+            font-size: 12px;
+            color: #666;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="bg.ogg" type="audio/ogg">
+    </audio>
+
+    <div class="container">
+        <div class="view-box" id="viewBox">
+            <div class="file-icon">📦</div>
+            <div class="file-info">
+                <h2 id="fileName">Загрузка...</h2>
+                <p id="fileSize"></p>
+            </div>
+
+            <div id="passwordSection" style="display: none;">
+                <div class="password-form">
+                    <input type="password" id="passwordInput" placeholder="Введите пароль">
+                    <button id="unlockBtn">Разблокировать</button>
+                </div>
+                <p class="error-msg" id="errorMsg" style="display: none;"></p>
+            </div>
+
+            <div id="previewSection" style="display: none;">
+                <div class="preview-container" id="previewContainer"></div>
+            </div>
+
+            <a href="#" id="downloadBtn" class="download-btn" style="display: none;">Скачать файл</a>
+
+            <div class="stats" id="stats"></div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Загрузка...</p>
+        </div>
+    </div>
+
+    <script src="view.js"></script>
+</body>
+</html>
